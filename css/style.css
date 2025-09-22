@@ -4229,6 +4229,7 @@ html.is-animating .mil-menu-frame {
           transition-delay: 0.3s;
 }
 
+<<<<<<< HEAD
 /* --- HEADER por encima de overlays --- */
 .mil-dark-bg:before { z-index: 0 !important; }
 .mil-frame { position: fixed; z-index: 1000; isolation: isolate; pointer-events: none; }
@@ -4370,4 +4371,10 @@ html.is-animating .mil-menu-frame {
 }
 @media (max-width: 576px){
   .mil-amount{ font-size: 24px; }
+=======
+.social-icon {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 9999;
+>>>>>>> b1d1562217fb04affe03c361633cd8d00b3e9bbe
 }
