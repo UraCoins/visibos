@@ -4228,3 +4228,146 @@ html.is-animating .mil-menu-frame {
   -webkit-transition-delay: 0.3s;
           transition-delay: 0.3s;
 }
+
+/* --- HEADER por encima de overlays --- */
+.mil-dark-bg:before { z-index: 0 !important; }
+.mil-frame { position: fixed; z-index: 1000; isolation: isolate; pointer-events: none; }
+.mil-frame .mil-frame-top { position: relative; z-index: 2000; pointer-events: all; }
+
+/* --- Botón hamburguesa: visible y clickeable --- */
+.mil-frame .mil-frame-top .mil-menu-btn {
+  position: relative;
+  z-index: 2001;
+  pointer-events: all; /* asegura los clicks */
+}
+
+/* Barras del hamburguesa en BLANCO también en desktop */
+.mil-frame .mil-frame-top .mil-menu-btn span,
+.mil-frame .mil-frame-top .mil-menu-btn span:before,
+.mil-frame .mil-frame-top .mil-menu-btn span:after {
+  background: #fff !important;
+}
+
+/* Por si el logo se invertía */
+.mil-frame .mil-frame-top .mil-logo img{
+  filter: none !important;
+  -webkit-filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Header arriba de todo y clickeable en la parte top */
+.mil-frame{ position:fixed; z-index:1000; pointer-events:none; isolation:isolate; }
+.mil-frame .mil-frame-top{ pointer-events:auto; }
+.mil-frame .mil-frame-top .mil-menu-btn{ pointer-events:auto; z-index:2001; }
+
+/* Nada transparente tapando clicks */
+.mil-curtain{ pointer-events:none !important; }
+.mil-menu-frame{ pointer-events:none; }            /* mientras está cerrada */
+.mil-menu-frame.mil-active{ pointer-events:auto; } /* cuando se abre sí recibe clicks */
+
+.mil-social-icons .social-icon i {
+  color: #fff;           /* blanco para buen contraste */
+  font-size: 20px;
+  transition: color .3s;
+}
+.mil-social-icons .social-icon:hover i {
+  color: #43DE81;         /* verde al pasar el mouse */
+}
+
+.mil-social-icons {
+  display: flex;
+  gap: 20px; /* espacio entre los íconos */
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mil-social-icons .social-icon i {
+  font-size: 20px;
+  color: #fff;
+  transition: color .3s;
+}
+
+.mil-social-icons .social-icon:hover i {
+  color: #43DE81; /* verde al pasar el mouse */
+}
+
+/* ===== Featured Packages ===== */
+.mil-packages-grid { row-gap: 32px; }
+
+.mil-package-card{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 28px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  isolation: isolate;
+}
+
+.mil-package-card::before{
+  content:"";
+  position:absolute; inset:-1px;
+  border-radius:20px;
+  background: radial-gradient(120% 120% at 0% 0%, rgba(43,255,0,0.08), transparent 60%);
+  opacity:.0; transition: opacity .3s ease;
+  z-index: -1;
+}
+
+.mil-package-card:hover{
+  transform: translateY(-6px);
+  border-color: rgba(43,255,0,0.35);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+.mil-package-card:hover::before{ opacity:1; }
+
+.mil-featured{
+  background: rgba(43,255,0,0.05);
+  border-color: rgba(43,255,0,0.25);
+}
+
+.mil-package-head h4{ margin: 8px 0 12px; line-height: 1.2; }
+.mil-price{ margin:0; }
+.mil-currency{
+  font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6); margin-right: 8px;
+}
+.mil-amount{ font-size: 28px; font-weight: 700; color: #cfcfcf; }
+
+.mil-chip{
+  display:inline-block; font-size:12px; letter-spacing:.12em; text-transform:uppercase;
+  padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.75);
+}
+.mil-chip-accent{
+  border-color: rgba(43,255,0,0.35);
+  background: rgba(43,255,0,0.08);
+  color: #caffc5;
+}
+
+.mil-benefits{
+  list-style: none; padding: 16px 0 0; margin: 0 0 22px;
+}
+.mil-benefits li{
+  position: relative; padding-left: 22px; margin-bottom: 10px;
+  color: rgba(255,255,255,0.75);
+}
+.mil-benefits li::before{
+  content:""; position:absolute; left:0; top:.55em;
+  width:10px; height:10px; border-radius:50%;
+  background: rgba(43,255,0,0.9);
+  box-shadow: 0 0 0 3px rgba(43,255,0,0.15);
+}
+
+.mil-package-cta{ margin-top: auto; }
+
+/* Responsive tweaks */
+@media (max-width: 992px){
+  .mil-package-card{ padding: 24px; }
+  .mil-amount{ font-size: 26px; }
+}
+@media (max-width: 576px){
+  .mil-amount{ font-size: 24px; }
+}
