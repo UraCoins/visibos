@@ -4242,11 +4242,11 @@ html.is-animating .mil-menu-frame {
 }
 
 /* Barras del hamburguesa en BLANCO también en desktop */
-.mil-frame .mil-frame-top .mil-menu-btn span,
+/* .mil-frame .mil-frame-top .mil-menu-btn span,
 .mil-frame .mil-frame-top .mil-menu-btn span:before,
 .mil-frame .mil-frame-top .mil-menu-btn span:after {
   background: #fff !important;
-}
+} */
 
 /* Por si el logo se invertía */
 .mil-frame .mil-frame-top .mil-logo img{
@@ -4382,3 +4382,12 @@ html.is-animating .mil-menu-frame {
 .mil-arrow-place::after {
   content: none !important;
 }
+
+.mil-frame .mil-frame-top .mil-menu-btn span,
+.mil-frame .mil-frame-top .mil-menu-btn span:before,
+.mil-frame .mil-frame-top .mil-menu-btn span:after {
+  background: #fff !important;        /* barras blancas */
+  box-shadow: 0 0 2px rgb(0, 0, 0); /* contorno oscuro, mejora contraste */
+}
+
+
